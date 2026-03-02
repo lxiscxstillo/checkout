@@ -145,7 +145,7 @@ export default function CheckoutLayout() {
 
   return (
     <div className="w-full min-h-screen pb-20">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-0 -mt-10 relative z-10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-0 -mt-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10 items-start">
           {/* Left Column - Order Items */}
           <div className="lg:col-span-2">
