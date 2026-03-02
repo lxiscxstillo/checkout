@@ -41,7 +41,7 @@ export default function OrderItems({
   onApplyDiscount,
 }: OrderItemsProps) {
   return (
-    <div className="bg-white rounded-2xl p-6 sm:p-7 shadow-[0_25px_60px_rgba(15,23,42,0.16)] border border-gray-100">
+    <div className="bg-white p-6 sm:p-7 shadow-[0_25px_60px_rgba(15,23,42,0.16)] border border-gray-100">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-lg font-bold text-gray-900">Order items</h2>
         <button

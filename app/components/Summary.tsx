@@ -39,7 +39,7 @@ export default function Summary({
 
   return (
     <div className="space-y-4">
-      <div className="bg-white rounded-2xl p-6 sm:p-7 shadow-[0_25px_60px_rgba(15,23,42,0.16)] border border-gray-100">
+      <div className="bg-white p-6 sm:p-7 shadow-[0_25px_60px_rgba(15,23,42,0.16)] border border-gray-100">
         <h2 className="text-lg font-bold text-gray-900 mb-4">Summary</h2>
 
         <div className="text-xs text-gray-600 mb-4 leading-relaxed">
@@ -84,7 +84,7 @@ export default function Summary({
             </div>
           )}
 
-          <div className="flex justify-between items-center py-4 px-3 sm:px-4 bg-gray-50 -mx-5 sm:-mx-6 mt-4 rounded-b-lg">
+          <div className="flex justify-between items-center py-4 px-3 sm:px-4 bg-gray-50 -mx-5 sm:-mx-6 mt-4">
             <span className="text-base font-bold text-gray-900">TOTAL:</span>
             <span className="text-lg font-bold text-gray-900">
               €{total.toFixed(2)}
@@ -95,7 +95,7 @@ export default function Summary({
 
       <button
         onClick={() => setDeliveryOpen((open) => !open)}
-        className="w-full bg-white rounded-2xl p-5 sm:p-6 shadow-[0_15px_40px_rgba(15,23,42,0.08)] border border-gray-100 flex justify-between items-center hover:bg-gray-50 transition"
+        className="w-full bg-white p-5 sm:p-6 shadow-[0_15px_40px_rgba(15,23,42,0.08)] border border-gray-100 flex justify-between items-center hover:bg-gray-50 transition"
       >
         <div className="flex flex-col text-left">
           <span className="text-sm font-semibold text-gray-900">Delivery</span>
@@ -116,7 +116,7 @@ export default function Summary({
       </button>
 
       {deliveryOpen && (
-        <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-[0_15px_40px_rgba(15,23,42,0.08)] border border-gray-100">
+        <div className="bg-white p-5 sm:p-6 shadow-[0_15px_40px_rgba(15,23,42,0.08)] border border-gray-100">
           <p className="text-sm text-gray-700 mb-4">Select delivery option</p>
 
           <div className="space-y-3">
@@ -128,7 +128,7 @@ export default function Summary({
                   key={option.id}
                   type="button"
                   onClick={() => onSelectDelivery(option.id)}
-                  className={`w-full border rounded-lg p-3 flex items-center justify-between text-left transition ${
+                  className={`w-full border p-3 flex items-center justify-between text-left transition ${
                     isSelected
                       ? 'border-blue-600 bg-blue-50'
                       : 'border-gray-200 hover:border-blue-300 hover:bg-gray-50'
@@ -161,7 +161,7 @@ export default function Summary({
         </div>
       )}
 
-      <button className="w-full bg-blue-950 text-white font-bold py-3 sm:py-4 rounded-lg hover:bg-blue-900 transition shadow-md text-sm sm:text-base">
+      <button className="w-full bg-blue-950 text-white font-bold py-3 sm:py-4 hover:bg-blue-900 transition shadow-md text-sm sm:text-base">
         Next step
       </button>
     </div>

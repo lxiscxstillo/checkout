@@ -13,47 +13,42 @@ export default function StepIndicator({ currentStep = 2 }: StepIndicatorProps) {
   ];
 
   return (
-    <div className="w-full bg-linear-to-br from-blue-950 via-blue-900 to-blue-900 px-4 sm:px-8 pb-8 border-b border-blue-800">
-      <div className="max-w-4xl mx-auto pt-2">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6">
-          <div className="flex items-center gap-2 sm:gap-4 flex-1 min-w-0 flex-wrap">
-            {steps.map((step, idx) => {
-              const isActive = step.number === currentStep;
+    <div className="w-full bg-blue-900/80 border border-blue-800 px-4 sm:px-8 py-3 sm:py-4">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-wrap items-center gap-3 sm:gap-6 flex-1 min-w-0">
+          {steps.map((step) => {
+            const isCompleted = step.number < currentStep;
+            const isCurrent = step.number === currentStep;
 
-              return (
+            return (
+              <div key={step.number} className="flex items-center gap-2">
                 <div
-                  key={step.number}
-                  className="flex items-center gap-1 sm:gap-3"
+                  className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold transition shrink-0 ${
+                    isCompleted
+                      ? 'bg-orange-400 text-white'
+                      : isCurrent
+                      ? 'bg-white text-blue-900'
+                      : 'bg-blue-800 text-white'
+                  }`}
                 >
-                  <div
-                    className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold transition shrink-0 ${
-                      isActive
-                        ? 'bg-yellow-400 text-blue-950'
-                        : 'bg-blue-800 text-white'
-                    }`}
-                  >
-                    {step.number}
-                  </div>
-                  <span
-                    className={`text-xs font-medium hidden md:inline whitespace-nowrap ${
-                      isActive ? 'text-white' : 'text-blue-300'
-                    }`}
-                  >
-                    {step.label}
-                  </span>
-                  {idx < steps.length - 1 && (
-                    <div className="hidden lg:block w-6 h-px bg-blue-700 mx-1" />
-                  )}
+                  {isCompleted ? '✓' : step.number}
                 </div>
-              );
-            })}
-          </div>
-
-          <button className="text-white text-xs sm:text-sm font-medium hover:opacity-80 transition whitespace-nowrap flex items-center gap-1 self-end sm:self-center">
-            <span>←</span>
-            <span>Previous step</span>
-          </button>
+                <span
+                  className={`text-xs sm:text-sm font-medium whitespace-nowrap ${
+                    isCurrent || isCompleted ? 'text-white' : 'text-blue-300'
+                  }`}
+                >
+                  {step.label}
+                </span>
+              </div>
+            );
+          })}
         </div>
+
+        <button className="text-white text-xs sm:text-sm font-medium hover:opacity-80 transition whitespace-nowrap flex items-center gap-1 sm:self-auto self-start">
+          <span>←</span>
+          <span>Previous step</span>
+        </button>
       </div>
     </div>
   );
